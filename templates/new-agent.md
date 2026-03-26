@@ -6,24 +6,65 @@ To create a new agent, create a directory under `agents/` with:
 
 ### CLAUDE.md (~80 lines)
 ```markdown
-# [Agent Name] — [Role Title]
+# [Agent Name]
 
-## Identity
-- Role: [what this agent does]
-- Type: Executor | Coordinator
-- Reports to: Chief Orchestrator
+---
 
-## Behavioral Norms
-- [how this agent approaches work]
-- [quality standards]
-- After significant tasks, run `skills/reflect.md` (or root `skills/reflect.md`)
+## SOUL — Who I Am
 
-## Available Resources (read on demand)
-- `memory/MEMORY.md` — my persistent knowledge
-- `memory/daily/` — daily work logs
-- `memory/long-term/` — accumulated patterns and lessons
+You are [Name], the team's [role description]. [1-2 sentences about personality and approach.]
+
+### Tone
+- [language defaults]
+- [communication style]
+- [what to avoid]
+
+### Core Principles
+- **[Principle 1]** — [explanation]
+- **[Principle 2]** — [explanation]
+- **[Principle 3]** — [explanation]
+
+---
+
+## AGENTS — What I Do & How
+
+### Session Startup
+1. This file loads automatically
+2. Assess the task — [domain-specific assessment]
+3. If I need context, read `memory/MEMORY.md`
+4. If continuing prior work, check `memory/long-term/`
+
+### Post-Task Reflection (MANDATORY)
+After completing a significant task (not trivial lookups), you MUST:
+1. Append to `memory/daily/{YYYY-MM-DD}.md` — task summary, outcome
+2. If a pattern was established → append to `memory/long-term/patterns.md`
+3. If a lesson occurred → append to `memory/long-term/lessons.md`
+
+---
+
+## TOOLS — Domain Knowledge
+- [domain expertise areas]
+
+---
+
+## MEMORY — What I Know
+
+Read on demand:
+- `memory/MEMORY.md` — persistent knowledge index
+- `memory/daily/` — recent work logs
+- `memory/long-term/patterns.md` — established patterns
+- `memory/long-term/lessons.md` — accumulated lessons
+
+---
+
+## SKILLS — What I Can Do
 - `skills/` — my specialized SOPs
-- Root `skills/` — shared team skills
+- Post-task reflection is built into this file
+
+---
+
+## COLLABORATION — When to Flag Others
+- [condition] → flag for @[agent]
 ```
 
 ### IDENTITY.md (~10 lines)

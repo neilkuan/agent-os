@@ -14,27 +14,51 @@ AgentOS
 ├── memory/            # Cross-team shared knowledge & daily logs
 └── agents/
     ├── dev/           # Code, architecture, debugging
+    ├── ops/           # CI/CD, deployment, infrastructure
     ├── writer/        # Writing, docs, content
-    └── researcher/    # Research, analysis, fact-checking
+    ├── researcher/    # Research, analysis, fact-checking
+    └── pm/            # Project planning, knowledge management
 ```
 
 ## How It Works
 
-**Chief** acts as a COO — every request lands on its desk first. It either handles the task directly or delegates to the right specialist:
+**Kakashi（卡卡西）** acts as a COO — every request lands on his desk first. He either handles the task directly or delegates to the right specialist:
 
-| Agent | Handles |
-|---|---|
-| **@dev** | Feature requests, bug fixes, code reviews, architecture |
-| **@writer** | Documentation, blog posts, emails, content editing |
-| **@researcher** | Research questions, competitive analysis, fact-checking |
+| Agent | Code Name | Handles |
+|---|---|---|
+| **@dev** | Naruto（鳴人） | Feature requests, bug fixes, code reviews, architecture |
+| **@ops** | Yamato（大和） | CI/CD pipelines, deployment, infrastructure, monitoring |
+| **@writer** | Jiraiya（自來也） | Documentation, blog posts, emails, content editing |
+| **@researcher** | Shikamaru（鹿丸） | Research questions, competitive analysis, fact-checking |
+| **@pm** | Tsunade（綱手） | Project planning, task breakdowns, progress tracking, knowledge org |
 
 Each agent runs in an independent context window with its own `CLAUDE.md`, memory, and skills. Chief synthesizes results and reports back.
+
+### Multi-Agent Coordination
+
+For tasks spanning multiple domains, Chief decomposes the work and delegates in parallel:
+
+- Code + deployment → Naruto writes the code, Yamato handles the pipeline
+- Research → plan → implement → Shikamaru → Tsunade → Naruto
+- Each agent flags cross-team dependencies for Chief to coordinate
 
 ## Key Features
 
 - **Smart Routing** — Chief reads the request and delegates to the best-fit agent
 - **Persistent Memory** — Each agent maintains its own memory for patterns, lessons, and context
 - **Auto Reflection** — Every agent writes a daily log after completing significant tasks (mandatory behavior, not optional)
+- **Cross-Agent Collaboration** — Agents flag when work needs another specialist, Chief coordinates
+- **Extensible Skills** — SOPs as markdown files, shared or agent-specific
+
+## Available Skills
+
+| Skill | File | Description |
+|---|---|---|
+| Triage | `skills/triage.md` | Classify requests and route to the right agent |
+| Morning Briefing | `skills/morning-briefing.md` | Daily startup overview |
+| Code Review | `skills/code-review.md` | Structured code review process |
+| Weekly Summary | `skills/weekly-summary.md` | Weekly progress rollup |
+
 ## Getting Started
 
 1. Install [Claude Code](https://docs.anthropic.com/en/docs/claude-code)
@@ -77,6 +101,7 @@ This uses Claude Code's built-in `CronCreate` — session-only, auto-expires aft
 | Task | Skill File | Suggested Schedule |
 |---|---|---|
 | Morning Briefing | `skills/morning-briefing.md` | Daily at 9am |
+| Weekly Summary | `skills/weekly-summary.md` | Weekly on Monday at 9am |
 
 ## Adding New Agents
 
